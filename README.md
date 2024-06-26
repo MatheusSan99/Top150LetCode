@@ -1,6 +1,6 @@
 # LeetCode Exercises
 
-This repository contains exercises resolved
+This repository contains exercises resolved, the objective here is to resolve 150 top exercises
 
 ## Installation
 
