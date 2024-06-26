@@ -10,7 +10,7 @@ To install the project, follow these steps:
 
 ## Running the Server
 
-To start the server, run the following command in the terminal: `php -S localhost:8080 -t public`
+To start the server, run the following command in the terminal: `php -S localhost:8000 -t public`
 
 ## Accessing the Application
 
