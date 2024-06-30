@@ -19,5 +19,3 @@ function exceptionHandler($exception) {
 }
 
 set_exception_handler('exceptionHandler');
-
-echo $undefinedVariable;

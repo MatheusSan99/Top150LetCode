@@ -17,13 +17,28 @@ As a reminder, a binary search tree is a tree that satisfies these constraints:
 - **Input:** `root = [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]`
 - **Output:** `[30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]`
 - **Explanation:** 
-  - The tree we are converting is shown in the image below.
-  
-  ![Example 1](https://assets.leetcode.com/uploads/2019/05/02/tree.png)
-  
-  - The result of the conversion is shown in the image below.
-  
-  ![Example 1](https://assets.leetcode.com/uploads/2019/05/02/tree2.png)
+  - The tree we are converting is shown below.
+
+```
+     4
+   /   \
+  1     6
+ / \   / \
+0   2 5   7
+   /       \
+  3         8
+```
+
+- **Output:** 
+```
+     30
+   /    \
+ 36      21
+ /  \    /  \
+36  35 26  15
+           /
+         33
+```
 
 **Example 2:**
 
@@ -49,7 +64,8 @@ As a reminder, a binary search tree is a tree that satisfies these constraints:
 
 ## Resolution in PHP
 
-```php
+```
+php
 <?php
 
 /**
@@ -86,5 +102,4 @@ class Solution {
             $this->recursionToTree($root->left);
         }
     }
-
 }

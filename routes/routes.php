@@ -17,8 +17,11 @@ class Router
         // Verifica a rota e chama o método correspondente no controlador
         switch ($route) {
             case '':
-                HomeController::index();
+                ExecucaoController::index();
                 break;
+            case 'execucao':
+                ExecucaoController::index();
+                break;	
             default:
                 self::notFound();
                 break;
