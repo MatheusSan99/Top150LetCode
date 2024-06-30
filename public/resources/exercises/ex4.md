@@ -46,18 +46,13 @@ class Solution {
      * @return NULL
      */
 
-    function rotate(&$nums, $k) {
-        while ($k != 0) {
-            $lastElement = end($nums);
-            $nums = array_pop($nums);
-            
-            $nums = array_shift($nums);
-            $k--;
-        }
-        
-        return $nums;
+function rotate(&$nums, $k) {
+    while ($k > 0) {
+        $lastElement = array_pop($nums);
+        array_unshift($nums, $lastElement);
+        $k--;
     }
+}
     
 }
 ```
-

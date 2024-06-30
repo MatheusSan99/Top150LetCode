@@ -1,31 +1,23 @@
 <?php
 
-class Solution
-{
+class Solution {
 
-    /**
-     * @param array[] $nums
-     * @return int
-     */
-    function removeDuplicates(&$nums)
-    {
-        $arrCount = array_count_values($nums);
-
-        foreach ($arrCount as $value => $quantity) {
-            while ($quantity > 2) {
-                $key = array_search($value, $nums);
-                unset($nums[$key]);
-
-                $quantity--;
-
-            }
-        }
-        return count($nums);
+/**
+ * @param int[] $nums
+ * @param int $k
+ * @return NULL
+ */
+function rotate(&$nums, $k) {
+    while ($k > 0) {
+        $lastElement = array_pop($nums);
+        array_unshift($nums, $lastElement);
+        $k--;
     }
 }
+}
 
-$nums = [1, 1, 1, 2, 2, 3];
+$nums = [1,2,3,4,5,6,7];
 
 $solution = new Solution();
 
-$solution->removeDuplicates($nums);
+$solution->rotate($nums, 3);
