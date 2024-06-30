@@ -38,11 +38,12 @@ class Solution
     function majorityElement($nums)
     {
         // Testei o algoritmo de Boyer-Moore e tive alguns problemas.
-        // O exercício principal diz que o número majoritário sempre existirá e que ele sempre será maior que n/2.
-        // Porém, considerando o cenário em que quero saber o número que aparece mais vezes em um array,
-        // O algoritmo de Boyer-Moore não funcionaria, pois ele só é adequado quando o número majoritário
-        // sempre existe e é maior que n/2.
-        // Portanto, resolvi implementar um algoritmo mais simples, que encontra o número que mais aparece no array e tambem resolve o problema.
+        // O exercício principal afirma que o número majoritário sempre existirá e será maior que n/2.
+        // No entanto, considerando um cenário em que um sócio de uma empresa seja considerado majoritário,
+        // mas possua menos de 50% das ações, por exemplo, 40%, enquanto outros três sócios possuem 20% cada,
+        // o algoritmo poderia apresentar comportamentos inesperados.
+        // Por isso, implementei um algoritmo mais simples para identificar o elemento que aparece mais vezes,
+        // independentemente de atingir a marca de 50%.
 
         $majorNumber = 0;
         $arrFormat = [];
