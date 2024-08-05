@@ -1,42 +1,28 @@
 <?php
 
-class Solution
-{
+class Solution {
 
     /**
-     * @param array [] $prices
-     * @return int
+     * @param String[] $details
+     * @return Integer
      */
-    public function maxProfit($prices)
-    {
-        if (empty($prices)) {
-            return 0;
-        }
+    function countSeniors($details) {
+        $contAgeOver60 = 0;
 
-        $lowestBuyValue = max($prices);
-        $sumAllProfit = 0;
-
-        foreach ($prices as $count => $price) {
-           
-            if ($price < $lowestBuyValue) {
-                $lowestBuyValue = $price;
-            }
-
-            $currentProfit = $price - $lowestBuyValue;
-          
-            if ($currentProfit > 0) {
-                $sumAllProfit += $currentProfit;
-                $lowestBuyValue = $price;
+        foreach($details as $passenger) {
+            $passengerAge = (int)substr($passenger, 11, 2);
+    
+            if ($passengerAge > 60) {
+                $contAgeOver60++;
             }
         }
 
-        return $sumAllProfit;
+        return $contAgeOver60;
     }
-
 }
 
-$prices =  [7,1,5,3,6,4];
+$details = ["7868190130M7522","5303914400F9211","9273338290F4010"];
 
 $solution = new Solution();
 
-echo $solution->maxProfit($prices);
+echo $solution->countSeniors($details);
