@@ -14,9 +14,9 @@ class Solution
         }
 
         $lowestBuyValue = max($prices);
-        $maxProfit = 0;
+        $sumAllProfit = 0;
 
-        foreach ($prices as $price) {
+        foreach ($prices as $count => $price) {
            
             if ($price < $lowestBuyValue) {
                 $lowestBuyValue = $price;
@@ -24,17 +24,18 @@ class Solution
 
             $currentProfit = $price - $lowestBuyValue;
           
-            if ($currentProfit > $maxProfit) {
-                $maxProfit = $currentProfit;
+            if ($currentProfit > 0) {
+                $sumAllProfit += $currentProfit;
+                $lowestBuyValue = $price;
             }
         }
 
-        return $maxProfit;
+        return $sumAllProfit;
     }
 
 }
 
-$prices = [7,6,4,3,1];
+$prices =  [7,1,5,3,6,4];
 
 $solution = new Solution();
 

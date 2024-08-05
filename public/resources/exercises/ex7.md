@@ -1,7 +1,3 @@
-Aqui está o problema formatado em Markdown:
-
----
-
 ## LeetCode Problem: Best Time to Buy and Sell Stock
 
 ### Problem Description
