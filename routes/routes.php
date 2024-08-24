@@ -8,27 +8,21 @@ spl_autoload_register(function ($className) {
 // Classe para manipulação de rotas
 class Router
 {
-    // Método para direcionar a rota para o controlador apropriado
     public static function route($route)
     {
-        // Remove a barra inicial da rota, se houver
         $route = rtrim($route, '/');
 
-        // Verifica a rota e chama o método correspondente no controlador
         switch ($route) {
+            case 'execucao':
             case '':
                 ExecucaoController::index();
                 break;
-            case 'execucao':
-                ExecucaoController::index();
-                break;	
             default:
                 self::notFound();
                 break;
         }
     }
 
-    // Método para lidar com rotas não encontradas
     private static function notFound()
     {
         echo 'Página não encontrada';

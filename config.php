@@ -1,6 +1,6 @@
 <?php
 
-define('APP_ROOT',  __DIR__);
+const APP_ROOT = __DIR__;
 
 $errorLogPath = APP_ROOT . '/logs/error.log';
 

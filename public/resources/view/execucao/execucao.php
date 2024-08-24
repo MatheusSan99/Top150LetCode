@@ -3,26 +3,33 @@
 class Solution {
 
     /**
-     * @param String[] $details
-     * @return Integer
+     * @param array[] $nums
+     * @return bool
      */
-    function countSeniors($details) {
-        $contAgeOver60 = 0;
+    function canJump($nums)
+    {
+        $furthestReachableIndex = 0;
+        $totalPositions = count($nums);
 
-        foreach($details as $passenger) {
-            $passengerAge = (int)substr($passenger, 11, 2);
-    
-            if ($passengerAge > 60) {
-                $contAgeOver60++;
+        for ($currentIndex = 0; $currentIndex < $totalPositions; $currentIndex++) {
+            if ($currentIndex > $furthestReachableIndex) {
+                return false;
+            }
+
+            $furthestReachableIndex = max($furthestReachableIndex, $currentIndex + $nums[$currentIndex]);
+
+            if ($furthestReachableIndex >= $totalPositions - 1) {
+                return true;
             }
         }
 
-        return $contAgeOver60;
+        return false;
     }
+
 }
 
-$details = ["7868190130M7522","5303914400F9211","9273338290F4010"];
+$nums = [3,2,1,0,4];
 
 $solution = new Solution();
 
-echo $solution->countSeniors($details);
+echo $solution->canJump($nums);
