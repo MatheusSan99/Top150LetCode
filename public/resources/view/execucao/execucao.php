@@ -1,35 +1,24 @@
 <?php
 
 class Solution {
+    function twoSum($nums, $target) {
+        foreach($nums as $index => $actualNumber) {
+            $numberToReachTarget = $target - $actualNumber;
 
-    /**
-     * @param array[] $nums
-     * @return bool
-     */
-    function canJump($nums)
-    {
-        $furthestReachableIndex = 0;
-        $totalPositions = count($nums);
+            if (in_array($numberToReachTarget, $nums)) {
+                $indexToReachTarget = array_search($numberToReachTarget, $nums);
 
-        for ($currentIndex = 0; $currentIndex < $totalPositions; $currentIndex++) {
-            if ($currentIndex > $furthestReachableIndex) {
-                return false;
-            }
-
-            $furthestReachableIndex = max($furthestReachableIndex, $currentIndex + $nums[$currentIndex]);
-
-            if ($furthestReachableIndex >= $totalPositions - 1) {
-                return true;
+                if ($index !== $indexToReachTarget) {
+                    return [$index, $indexToReachTarget];
+                }
             }
         }
-
-        return false;
     }
-
 }
 
-$nums = [3,2,1,0,4];
+$nums = [3, 2, 4];
+$target = 6;
 
-$solution = new Solution();
+$Solution = new Solution();
 
-echo $solution->canJump($nums);
+print_r($Solution->twoSum($nums, $target));
