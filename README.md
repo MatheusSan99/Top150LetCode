@@ -18,4 +18,4 @@ Once the server is running, you can access the application in your browser using
 
 # LeetCode Solutions
 
-[Documentation](./resources/view/Home/home.php)
+[Documentation](./public/resources/view/Home/home.php)
