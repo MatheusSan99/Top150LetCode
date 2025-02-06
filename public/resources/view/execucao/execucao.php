@@ -1,23 +1,28 @@
 <?php
 
 class Solution {
-  function isArraySpecial($nums) {
-    $length = count($nums);
-    if ($length == 1) {
-        return true;
-    }
 
-    for ($i = 0; $i < $length - 1; $i++) {
-        if (($nums[$i] % 2) == ($nums[$i + 1] % 2)) {
-            return false;
-        }
-    }
+  /**
+   * @param Integer[] $nums
+   * @return Boolean
+   */
+  function check($nums) {
+      $arrayLength = count($nums);
+      $sortedArr = $nums;
+      sort($sortedArr);
 
-    return true;
-}
+      for ($arrayLength; $arrayLength > 0; $arrayLength--) {
+          if ($sortedArr == $nums) {
+              return true;
+          }
+          $firstElement = array_shift($nums);
+          array_push($nums, $firstElement);
+      }
 
+      return false;
+  }
 }
 
 $solution = new Solution();
 
-var_dump($solution->isArraySpecial([2,1,4])); 
+$nums = [3,4,5,1,2];
